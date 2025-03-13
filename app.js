@@ -1,51 +1,47 @@
-// local storage only stores strings (so here we have to convert
-//  arr to string using json methods)
+let myleads = JSON.parse(localStorage.getItem("myleads")) || []; // Retrieve stored leads
 
-let myLeads = [];
-const inp = document.querySelector("input");
-const btn = document.querySelector("button");
-const ul = document.querySelector("ul");
-const deletebtn = document.querySelector("#DELETE-btn");
-const tabbtn = document.querySelector("#tab-btn");
+let input = document.querySelector("input");
+let btn = document.querySelector(".save-inp");
+let ul = document.querySelector(".ul");
+let delbtn = document.querySelector(".delete");
+let tbtn = document.querySelector(".save-tab");
 
-const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
-// console.log(leadsFromLocalStorage);
-
-if(leadsFromLocalStorage){
-  myLeads = leadsFromLocalStorage;
-  render(myLeads);
+// Function to render leads
+function renderLeads() {
+    ul.innerHTML = ""; // Clear the list before rendering
+    myleads.forEach(lead => {
+        let item = document.createElement("li");
+        item.innerHTML = `<a href="${lead}" target="_blank"><u>${lead}</u></a>`;
+        ul.appendChild(item);
+    });
 }
 
-tabbtn.addEventListener("click", ()=>{
-  
-})
+// Initial rendering of stored leads
+renderLeads();
 
-//function that takes anyleads form array and render it out
-function render(leads){
-  let listItems = "";
-  for(let mylead of leads){
-    listItems += `<li> <a href="${leads} target="_blank"> ${leads} </a> </li>`
-  }
-  ul.innerHTML = listItems;
-}
+delbtn.addEventListener("dblclick", () => {
+    localStorage.removeItem("myleads");
+    myleads = [];
+    ul.innerHTML = "";
+});
 
-deletebtn.addEventListener("dblclick" , ()=>{
-  console.log("DELETED")
-  localStorage.clear();
-  myLeads=[];
-  render( myLeads);  //to clear the DOM
-})
+tbtn.addEventListener("click", () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        let tabURL = tabs[0].url;
+        if (tabURL) {
+            myleads.push(tabURL);
+            localStorage.setItem("myleads", JSON.stringify(myleads));
+            renderLeads();
+        }
+    });
+});
 
-
-btn.addEventListener("click", ()=>{
-    myLeads.push(inp.value);
-    inp.value = "";
-    
-    //storing the information in local storage
-     localStorage.setItem("myLeads", JSON.stringify(myLeads));
-     console.log(localStorage.getItem("myLeads"));
-     render( myLeads);
-})
-
-
-
+btn.addEventListener("click", () => {
+    let lead = input.value.trim();
+    if (lead) {  // Ensure it's not empty
+        myleads.push(lead);
+        localStorage.setItem("myleads", JSON.stringify(myleads));
+        renderLeads();
+        input.value = ""; // Clear input field
+    }
+});

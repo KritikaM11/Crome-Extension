@@ -3,34 +3,77 @@ body{
   padding: 10px;
   font-family: Arial, Helvetica, sans-serif;
   min-width: 400px;
+  
 }
 input{
-    width: 100%;
-    border: 2px solid #5f9341;
-    padding: 0.62rem;
-    box-sizing: border-box;
-    font-size: 1rem;
-}
-button{
-    padding: 0.62rem 1.25rem;
-    background-color: #5f9341;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: 0.25rem;
-    border: none;
+  width: 100%;
+  border: 2px solid #5f9341;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 1rem;
+  height: 2.5rem;
+  outline: none;
 }
 
-#DELETE-btn{
-  background-color: white;
-  color: #5f9341;
-  border: 1px solid #5f9341;
+.button-container {
+  display: flex;
+  gap: 10px; /* Spacing between buttons */
 }
+
+button {
+  padding: 12px 18px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+  margin-top: 0.5rem;
+}
+
+button:hover{
+  transform: scale(1.35);
+  margin: 1rem 1rem 0 1rem;
+}
+
+button:active {
+  transform: scale(0.98); 
+}
+
+
+.save-inp {
+  background-color: #007bff; 
+  color: white;
+}
+
+.save-inp:hover {
+  background-color: #0056b3;
+}
+
+.save-tab {
+  background-color: #28a745; 
+  color: white;
+}
+
+.save-tab:hover {
+  background-color: #1e7e34; 
+}
+
+.delete {
+  background-color: #dc3545; 
+  color: white;
+  border: 2px solid white;
+}
+
+.delete:hover {
+  background-color: #a71d2a; 
+}
+
 .ul{
-    margin-top: 1rem;
-    list-style: none;
-    padding-left: 0;
-    font-size: 1rem;
+  margin-top: 1rem;
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem;
 }
 
 ul li{
@@ -38,5 +81,5 @@ ul li{
 }
 
 li a{
-color: #5f9341;
+  color: #5f9341;
 }
