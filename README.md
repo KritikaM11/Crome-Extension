@@ -6,6 +6,7 @@ It allows you to:
 - ✅ **Save inputted links manually**  
 - ✅ **Save the currently open tab**  
 - ✅ **Delete all saved links instantly**  
+- ✅ **Delete a specific link with a single click**  
 
 With this extension, you can **quickly store important websites** and access them later without losing track of useful resources.  
 
@@ -14,6 +15,6 @@ With this extension, you can **quickly store important websites** and access the
 ## 🎯 Features  
 - 🎯 **Save Input** - Manually add any URL to your list  
 - 🌍 **Save Tab** - Quickly save the active tab’s URL  
+- ❌ **Delete Individual Link** - Click the ❌ button next to a saved link to remove it  
 - 🗑 **Delete All** - Remove all saved links with a double-click  
 - 💾 **Local Storage Support** - Your links are saved even after closing the browser  
-
