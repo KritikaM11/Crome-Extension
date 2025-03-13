@@ -27,11 +27,11 @@ button {
   font-size: 0.85rem;
   font-weight: bold;
   border-radius: 5px;
-  transition: 0.3s ease-in-out;
   margin-top: 0.5rem;
 }
 
 button:hover{
+  transition: 0.3s ease-in-out;
   transform: scale(1.35);
   margin: 1rem 1rem 0 1rem;
 }
@@ -69,17 +69,29 @@ button:active {
   background-color: #a71d2a; 
 }
 
-.ul{
-  margin-top: 1rem;
+.ul {
   list-style: none;
-  padding-left: 0;
-  font-size: 1rem;
+  padding: 0;
+  width: 100%;
 }
 
-ul li{
-  margin-top: 0.30rem;
+.ul li {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 8px;
+  border-bottom: 0.5px solid #ddd;
 }
 
-li a{
-  color: #5f9341;
+.delete-btn {
+  color: red;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  opacity: 0.5
+}
+
+.delete-btn:hover {
+  color: darkred;
+  opacity: 1;
 }
